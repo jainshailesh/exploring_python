@@ -29,3 +29,15 @@ display_employee(name='Sam', age='23')
 
 # the most widely used sequence while having different types of arguments is:
 # def func(required, optional='', *variable_positional, **variable_keyword)
+
+# pre-loading arguments
+import functools
+
+
+def power(base, exponent):
+    return base ** exponent
+
+square = functools.partial(power, exponent=2)
+cube = functools.partial(power, exponent=3)
+print square(3)
+print cube(3)
