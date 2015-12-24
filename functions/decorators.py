@@ -42,3 +42,27 @@ print multiply(3, 4)
 print multiply(5, 4)
 print multiply(3, 4)
 print multiply(5, 4)
+
+
+# passing arguments to a decorator
+def suppress_errors(logger):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except Exception as e:
+                logger(e)
+        return wrapper
+    return decorator
+
+
+def print_logger(s):
+    print "Logging: %s" % s
+
+
+@suppress_errors(print_logger)
+def divide(a, b):
+    return a / b
+
+print divide(20, 2)
+print divide(2, 0)
