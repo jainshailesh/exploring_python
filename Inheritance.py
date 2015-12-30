@@ -18,3 +18,22 @@ class Example(SuppressNoAttributes):
 e = Example()
 print e.sample
 print type(e.sample)
+
+
+# Using Super() to call methods of the base class
+# Note: in python 3 onwards, all the classes are new-style classes, i.e. their type is the Class type, in 2.X versions,
+# this is done by explicitly inheriting from Object class.
+
+class A(object):
+    def test(self):
+        print 'A'
+
+
+class B(A):
+    def test(self):
+        print 'B'
+        super(B, self).test()  # super() takes 2 arguments, a type and an instance object
+
+
+b = B()
+print b.test()
