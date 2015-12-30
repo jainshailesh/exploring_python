@@ -37,3 +37,24 @@ class B(A):
 
 b = B()
 print b.test()
+
+
+class C(A):
+    pass
+
+
+class D(B, C):
+    pass
+
+
+class E(D):
+    pass
+
+# Introspection:
+
+print B.__bases__  # to know the base class
+print A.__subclasses__()  # to know all the sub classes
+print E.__mro__  # to know the method resolution order
+print isinstance(b, B)
+print isinstance(b, A)
+print issubclass(E, A)
