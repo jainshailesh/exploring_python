@@ -22,3 +22,9 @@ def fibbonaci(count):
 
 
 print list(fibbonaci(10))  # list internally interates over a generator until it exhausts
+
+# Just like list-comprehensions, generators can be created in a single line of code,
+# use '()' instead of '[]' to create a generator
+even_numbers = (i for i in range(100) if i % 2 == 0)
+for num in even_numbers:
+    print num
