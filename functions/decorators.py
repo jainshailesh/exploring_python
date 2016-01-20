@@ -66,3 +66,28 @@ def divide(a, b):
 
 print divide(20, 2)
 print divide(2, 0)
+
+
+# Understanding the order in which decorators are applied
+def deco1(func):
+    def wrapper():
+        print "Deco 1 starts!"
+        func()
+        print "Deco 1 done!"
+    return wrapper
+
+
+def deco2(func):
+    def wrapper():
+        print "Deco 2 starts!"
+        func()
+        print "Deco 2 done!"
+    return wrapper
+
+
+@deco2
+@deco1
+def sample():
+    print "In sample."
+
+sample()
