@@ -28,3 +28,8 @@ print list(fibbonaci(10))  # list internally interates over a generator until it
 even_numbers = (i for i in range(100) if i % 2 == 0)
 for num in even_numbers:
     print num
+
+fib = fibbonaci(10)
+print "Fib object: ", fib
+for i in range(10):
+    print next(fib)
